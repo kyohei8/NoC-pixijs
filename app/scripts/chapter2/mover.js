@@ -5,7 +5,7 @@ import PVector from '../chapter1/pVector';
  * Mover
  */
 class Mover{
-  constructor(renderer, liquid, m, x, y){
+  constructor(renderer, liquid, attractor, m, x, y){
     this.location = null;
     this.velocity = null;
     this.acceleration = null;
@@ -14,6 +14,8 @@ class Mover{
     const { width, height } = this.renderer.renderer;
     this.width = width;
     this.height = height;
+
+    this.attractor = attractor;
 
     // 位置
     // this.location = new PVector(_.random(this.width), _.random(this.height));
@@ -61,7 +63,7 @@ class Mover{
     // 右向きの風
     const wind = new PVector(0.01, 0);
     // 重力
-    const gravity = new PVector(0, 0.1);
+    // const gravity = new PVector(0, 0.1);
     // 摩擦
     // 摩擦係数(μ)
     const c = 0.01;
@@ -80,6 +82,8 @@ class Mover{
     }
 
 
+    const gravity = this.attractor.attract(this);
+    this.applyForce(gravity);
     this.applyForce(wind);
     this.applyForce(gravity);
     this.update();
