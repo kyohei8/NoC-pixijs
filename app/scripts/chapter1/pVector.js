@@ -1,0 +1,139 @@
+import _ from 'lodash';
+/**
+ * PVector
+ */
+class PVector{
+  constructor(x, y){
+    this.x = x;
+    this.y = y;
+  }
+
+  /**
+   * ベクトルを加算する
+   * @param {PVector} v ベクトルクラス
+   */
+  add(pVector){
+    this.x += pVector.x;
+    this.y += pVector.y;
+  }
+
+  /**
+   * ベクトルの加算
+   *
+   * @static
+   * @param {PVector} v1 ベクトル
+   * @param {PVector} v2 ベクトル2
+   * @returns {PVector} 加算されたベクトル
+   */
+  static add(v1, v2){
+    return new PVector(v1.x + v2.x, v1.y + v2.y);
+  }
+
+  /**
+   * ベクトルを減算する
+   * @param {PVector} v ベクトルクラス
+   */
+  sub(pVector){
+    this.x -= pVector.x;
+    this.y -= pVector.y;
+  }
+
+  /**
+   * ベクトルの減算
+   *
+   * @static
+   * @param {PVector} v1 ベクトル
+   * @param {PVector} v2 ベクトル2
+   * @returns {PVector} 減算されたベクトル
+   */
+  static sub(v1, v2){
+    return new PVector(v1.x - v2.x, v1.y - v2.y);
+  }
+
+  /**
+   * ベクトルを乗算する
+   * @param {number} n
+   */
+  mult(n){
+    this.x *= n;
+    this.y *= n;
+  }
+
+  /**
+   * ベクトルの乗算
+   *
+   * @static
+   * @param {PVector} v1 ベクトル
+   * @param {number} n
+   * @returns {PVector} 乗算されたベクトル
+   */
+  static mult(v1, n){
+    return new PVector(v1.x * n, v1.y * n);
+  }
+
+  /**
+   * ベクトルを除算する
+   * @param {number} n
+   */
+  div(n){
+    this.x /= n;
+    this.y /= n;
+  }
+
+  /**
+   * ベクトルの除算
+   *
+   * @static
+   * @param {PVector} v1 ベクトル
+   * @param {number} n 数値
+   * @returns {PVector} 除算されたベクトル
+   */
+  static div(v1, n){
+    return new PVector(v1.x / n, v1.y / n);
+  }
+
+  /**
+   * ベクトルの大きさを返す
+   */
+  mag(){
+    return Math.sqrt(this.x * this.x + this.y * this.y);
+  }
+
+  /**
+   * ベクトルの正規化
+   */
+  normalize(){
+    const m = this.mag();
+    if(m !== 0){
+      this.div(m);
+    }
+  }
+
+  limit(max){
+    if(this.mag() > max){
+      this.normalize();
+      this.mult(max);
+    }
+  }
+
+  /**
+   * 自身のコピーしたオブジェクトを返す
+   * @returns {PVector}
+   */
+  get(){
+    return new PVector(this.x, this.y);
+  }
+
+  /**
+   * ランダムな方向をさす長さ1のベクトルを生成
+   *
+   * @static
+   * @returns {PVector} 長さ1のベクトル
+   */
+  static random2D(){
+    const angle = _.random(360);
+    return new PVector(Math.cos(angle),Math.sin(angle));
+  }
+}
+
+export default PVector;

@@ -1,0 +1,23 @@
+doctype html
+html.no-js(lang='')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    //- for mobile
+    //- meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no')
+    block title
+      title ***
+
+    // Place favicon.ico in the root directory
+    link(rel="shortcut icon", href="/favicon.ico")
+    link(rel='apple-touch-icon', href='/apple-touch-icon.png')
+
+    // build:css styles/main.css
+    link(rel='stylesheet', href='styles/main.css')
+    // endbuild
+
+    // build:js scripts/libs/pixi.min.js
+    script(src="./scripts/libs/pixi.min.js")
+    // endbuild
+  body
+    block content
