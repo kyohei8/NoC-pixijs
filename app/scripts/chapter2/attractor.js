@@ -1,7 +1,7 @@
 import { clamp } from 'lodash';
 import PVector from '../chapter1/pVector';
 // 万有引力定数
-const G = 2;
+const G = 1;
 
 /**
  * Attractor

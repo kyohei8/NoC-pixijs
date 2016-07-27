@@ -13,9 +13,22 @@ liquidArea.beginFill(0x3333dd);
 liquidArea.drawRect(liquid.x, liquid.y, liquid.w, liquid.h);
 renderer.append(liquidArea);
 
-const attractor = new Attractor(renderer, _.random(0, width), _.random(0, 30));
+const attractor = new Attractor(renderer, _.random(0, width), _.random(0, height));
+const movers = [];
 _.range(10).forEach(() => {
-  new Mover(renderer, liquid, attractor, _.random(1, 20), _.random(0, width), _.random(0, 30));
+  movers.push(new Mover(renderer, liquid, attractor, _.random(1, 20), _.random(0, width), _.random(0, 30)));
+});
+
+renderer.draw(() => {
+  movers.forEach((m, i) => {
+    movers.forEach((m2, j) => {
+      if(i !== j){
+        const f = m2.attract(m);
+        m.applyForce(f);
+        m.display();
+      }
+    });
+  });
 });
 
 

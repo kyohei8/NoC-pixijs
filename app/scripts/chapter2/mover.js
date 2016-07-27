@@ -1,6 +1,9 @@
 import _ from 'lodash';
 import PVector from '../chapter1/pVector';
 
+// 万有引力定数
+const G = 1;
+
 /**
  * Mover
  */
@@ -37,8 +40,9 @@ class Mover{
     this.graphics.drawCircle(0, 0, this.mass * 3);
     this.graphics.endFill();
     renderer.append(this.graphics);
+    this.display();
 
-    renderer.draw(this.display.bind(this));
+    // renderer.draw(this.display.bind(this));
 
   }
 
@@ -81,11 +85,10 @@ class Mover{
       this.applyForce(this.liquid.drag(this));
     }
 
-
-    const gravity = this.attractor.attract(this);
-    this.applyForce(gravity);
+    // const gravity = this.attractor.attract(this);
+    // this.applyForce(gravity);
     this.applyForce(wind);
-    this.applyForce(gravity);
+    // this.applyForce(gravity);
     this.update();
     this.checkEdges();
     this.graphics.position.x = this.location.x;
@@ -111,6 +114,22 @@ class Mover{
       this.location.y = 0;
       this.velocity.y *= -1;
     }
+  }
+
+  /**
+   * 重力を返す
+   *
+   * @param {Mover} m Moverオブジェクト
+   * @returns {PVector} 重力を表すベクトル
+   */
+  attract(m){
+    let force = PVector.sub(this.location, m.location);
+    const distance = _.clamp(force.mag(), 5, 25);
+    force.normalize();
+    // 力の大きさ
+    const strength = (G * this.mass * m.mass) / (distance * distance);
+    force.mult(strength);
+    return force;
   }
 }
 
