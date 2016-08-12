@@ -1,3 +1,5 @@
+const width = window.innerWidth;
+const height = window.innerHeight;
 /**
  * PixiRenderer
  */
@@ -29,7 +31,7 @@ class PixiRenderer{
   }
 
   init(){
-    this.renderer = PIXI.autoDetectRenderer(800, 600, {
+    this.renderer = PIXI.autoDetectRenderer(width, height, {
       backgroundColor : 0xDDDDDD,
       view: document.querySelector('#app'),
       transparent: false,

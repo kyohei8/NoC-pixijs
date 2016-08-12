@@ -12,6 +12,7 @@ class Mover{
     this.location = null;
     this.velocity = null;
     this.acceleration = null;
+
     this.liquid = liquid;
     this.renderer = renderer;
     const { width, height } = this.renderer.renderer;
@@ -30,6 +31,10 @@ class Mover{
     this.acceleration = new PVector(0, 0);
     // 質量
     this.mass = m;
+    // 角運動量
+    this.angle = 0;
+    this.aVelocity = 0;
+    this.aAcceleration = this.acceleration.x;
 
     this.topspeed = 10;
 
@@ -37,7 +42,9 @@ class Mover{
     this.graphics.lineStyle(0);
     const color = `0x${Math.random().toString(16).slice(2,8)}`;
     this.graphics.beginFill(color, 1);
-    this.graphics.drawCircle(0, 0, this.mass * 3);
+    // this.graphics.drawCircle(0, 0, this.mass * 3);
+    this.graphics.drawRect(0, 0, this.mass * 3, this.mass * 3);
+    this.graphics.pivot.set(this.mass * 3 / 2, this.mass * 3 / 2);
     this.graphics.endFill();
     renderer.append(this.graphics);
     this.display();
@@ -60,6 +67,18 @@ class Mover{
     this.velocity.add(this.acceleration);
     this.velocity.limit(this.topspeed);
     this.location.add(this.velocity);
+
+    // 角運動量
+    this.aAcceleration = this.acceleration.x / 10.0;
+    this.aVelocity += this.aAcceleration;
+    // constrain
+    this.aVelocity = Math.max(-1, Math.min(this.aVelocity, 1));
+    this.angle += this.aVelocity;
+
+    // 進んでいる方向に向く
+    this.angle = this.velocity.heading();
+
+    // 0にもどす
     this.acceleration.mult(0);
   }
 
@@ -93,6 +112,7 @@ class Mover{
     this.checkEdges();
     this.graphics.position.x = this.location.x;
     this.graphics.position.y = this.location.y;
+    this.graphics.rotation = this.angle;
   }
 
   /**
