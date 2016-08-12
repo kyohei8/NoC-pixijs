@@ -29,7 +29,7 @@ class PixiRenderer{
   }
 
   init(){
-    this.renderer = PIXI.autoDetectRenderer(800, 600,{
+    this.renderer = PIXI.autoDetectRenderer(800, 600, {
       backgroundColor : 0xDDDDDD,
       view: document.querySelector('#app'),
       transparent: false,
