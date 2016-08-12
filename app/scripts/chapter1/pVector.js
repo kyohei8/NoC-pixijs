@@ -117,6 +117,15 @@ class PVector{
   }
 
   /**
+   * 向きを求める
+   *
+   * @returns {number} 角度（ラジアン）
+   */
+  heading(){
+    return Math.atan2(this.y, this.x);
+  }
+
+  /**
    * 自身のコピーしたオブジェクトを返す
    * @returns {PVector}
    */
