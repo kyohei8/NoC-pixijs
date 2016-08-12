@@ -47,7 +47,7 @@ gulp.task('serve', ['styles', 'fonts', 'pug'], () => {
         webpackDevMiddleware(bundler, {
           publicPath: webpackConfig.output.publicPath,
           noInfo: false,
-          quiet: false,
+          quiet: true,
           stats: defaultStatsOptions
         }),
         webpackHotMiddleware(bundler)
