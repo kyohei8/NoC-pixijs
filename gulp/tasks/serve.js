@@ -6,7 +6,11 @@ import webpack from 'webpack';
 import webpackConfig from '../../webpack.config.development.babel';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+import Dashboard from 'webpack-dashboard';
+import DashboardPlugin from 'webpack-dashboard/plugin';
 const bundler = webpack(webpackConfig);
+const dashboard = new Dashboard();
+bundler.apply(new DashboardPlugin(dashboard.setData));
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -47,10 +51,12 @@ gulp.task('serve', ['styles', 'fonts', 'pug'], () => {
         webpackDevMiddleware(bundler, {
           publicPath: webpackConfig.output.publicPath,
           noInfo: false,
-          quiet: false,
+          quiet: true,
           stats: defaultStatsOptions
         }),
-        webpackHotMiddleware(bundler)
+        webpackHotMiddleware(bundler, {
+          log: () => {}
+        })
       ]
     }
   });
