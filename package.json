@@ -24,6 +24,7 @@
     "babel-preset-es2015-riot": "^1.1.0",
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.8.0",
+    "box2d.js": "^1.0.0",
     "browser-sync": "^2.11.2",
     "chai": "^3.5.0",
     "del": "^2.2.0",

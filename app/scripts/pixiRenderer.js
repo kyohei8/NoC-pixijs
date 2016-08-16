@@ -28,6 +28,10 @@ class PixiRenderer{
     this.stage.addChild(pixiDisplayObject);
   }
 
+  remove(pixiDisplayObject){
+    this.stage.removeChild(pixiDisplayObject);
+  }
+
   draw(func){
     this.drawFunc.push(func);
   }
