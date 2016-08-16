@@ -7,7 +7,7 @@ class Repeller{
     this.renderer = renderer;
     this.location = new PVector(x, y);
     // 引き付ける強さ
-    this.strength = 10;
+    this.strength = -100;
     this._createRepeller();
   }
 
