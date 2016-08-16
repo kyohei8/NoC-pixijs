@@ -12,22 +12,6 @@ class PixiRenderer{
     // start animating
     this.animate = this.animate.bind(this);
     this.animate();
-
-    /*
-    var texture = PIXI.Texture.fromImage('./assets/images/_sprites.png');
-    var bunny = new PIXI.Sprite(texture);
-
-    // center the sprite's anchor point
-    bunny.anchor.x = 0.5;
-    bunny.anchor.y = 0.5;
-
-    // move the sprite to the center of the screen
-    bunny.position.x = 200;
-    bunny.position.y = 150;
-
-    this.stage.addChild(bunny);
-    */
-
   }
 
   init(){

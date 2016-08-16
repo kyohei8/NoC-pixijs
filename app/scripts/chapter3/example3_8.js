@@ -4,15 +4,10 @@ import PixiRenderer from '../pixiRenderer.js';
 const renderer = new PixiRenderer();
 import Oscillator from './oscillator';
 
-console.log(Noise);
 const noise = new Noise(Math.random());
 
 const { width, height } = renderer.renderer;
 const { stage } = renderer;
-
-Math.map = function (value, istart, istop, ostart, ostop) {
-	return ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
-}
 
 let angle = 0;
 const angleVel = 0.02;
