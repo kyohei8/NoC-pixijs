@@ -15,4 +15,5 @@ Math.constrain = (amt, low, high) => {
 // import './chapter3/example3_10';
 // import './chapter3/example3_11';
 // import './chapter4/example1/';
-import './chapter5/';
+// import './chapter5/';
+import './chapter5/index2';

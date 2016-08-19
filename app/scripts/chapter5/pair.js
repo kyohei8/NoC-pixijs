@@ -19,7 +19,6 @@ class Pair{
     const djd = new Box2D.b2DistanceJointDef();
     djd.set_bodyA(this.p1.body);
     djd.set_bodyB(this.p2.body);
-    console.log(this.p1);
     const wpA = copyVec2(this.p1.body.GetWorldPoint(djd.get_localAnchorA()));
     const wpB = copyVec2(this.p2.body.GetWorldPoint(djd.get_localAnchorB()));
     const d = new Box2D.b2Vec2( wpB.get_x() - wpA.get_x(), wpB.get_y() - wpA.get_y() );
