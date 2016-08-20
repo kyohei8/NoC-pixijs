@@ -1,0 +1,10 @@
+// import _ from 'lodash';
+import PixiRenderer from '../pixiRenderer.js';
+const renderer = new PixiRenderer();
+
+const { width, height } = renderer.renderer;
+const { stage } = renderer;
+
+renderer.draw(() => {
+});
+
