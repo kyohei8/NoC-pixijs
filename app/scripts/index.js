@@ -1,10 +1,4 @@
-Math.map = (value, istart, istop, ostart, ostop) => {
-  return ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
-};
-Math.constrain = (amt, low, high) => {
-  return (amt < low) ? low : ((amt > high) ? high : amt);
-};
-
+import './helper';
 // import './chapter0/';
 // import './chapter1/';
 // import './chapter1/example1_3/';
@@ -20,4 +14,6 @@ Math.constrain = (amt, low, high) => {
 // import './chapter5/index5_9';
 // import './chapter5/toxiclibs/';
 // import './chapter5/toxiclibsNode/';
-import './chapter5/toxiclibsForce/';
+// import './chapter5/toxiclibsForce/';
+// import './chapter6/';
+import './chapter6/flowField/';
