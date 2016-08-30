@@ -143,6 +143,29 @@ class PVector{
     const angle = _.random(360);
     return new PVector(Math.cos(angle),Math.sin(angle));
   }
+
+  /**
+   * 内積(dot product)を計算
+   *
+   * @param {PVector} v1 ベクトル
+   * @returns {number} 内積の値
+   */
+  dot(v1){
+    return this.x * v1.x + this.y * v1.y;
+  }
+
+  /**
+   * 2つのベクトルの角度を求める
+   *
+   * @param {PVector} v1 ベクトル１
+   * @param {PVector} v2 ベクトル２
+   * @returns {number} 角度（θ）
+   */
+  static angleBetween(v1, v2){
+    const dot = v1.dot(v2);
+    const theta = Math.acos(dot / (v1.mag() * v2.mag()));
+    return theta;
+  }
 }
 
 export default PVector;

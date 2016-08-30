@@ -16,4 +16,5 @@ import './helper';
 // import './chapter5/toxiclibsNode/';
 // import './chapter5/toxiclibsForce/';
 // import './chapter6/';
-import './chapter6/flowField/';
+// import './chapter6/flowField/';
+import './chapter6/dot/';
