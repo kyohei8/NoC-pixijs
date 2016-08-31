@@ -14,17 +14,21 @@ class Arrow{
 
   drawArrow(){
     // draw
-    const line = new PIXI.Graphics();
-    line.lineStyle(3).moveTo(0, 0)
+    this.line = new PIXI.Graphics();
+    this.line.lineStyle(3).moveTo(0, 0)
       .lineTo(this.v.x, -this.v.y);
       // .lineTo(this.v.x - 5, this.v.y - 5 )
       // .lineTo(this.v.x + 5, this.v.y - 5)
       // .lineTo(this.v.x, this.v.y);
 
-    line.position.set(this.width / 2, this.height / 2);
+    this.line.position.set(this.width / 2, this.height / 2);
     // line.pivot.set(0, this.resolution / 2);
     // line.rotation = -f.heading() + Math.PI;
-    this.renderer.append(line);
+    this.renderer.append(this.line);
+  }
+
+  display(){
+    this.line.clear().lineStyle(3).moveTo(0, 0).lineTo(this.v.x, -this.v.y);
   }
 }
 
