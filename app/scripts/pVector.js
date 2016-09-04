@@ -3,7 +3,7 @@ import _ from 'lodash';
  * PVector
  */
 class PVector{
-  constructor(x, y){
+  constructor(x = 0, y = 0){
     this.x = x;
     this.y = y;
   }
@@ -100,6 +100,15 @@ class PVector{
   }
 
   /**
+   * ベクトルの大きさを設定
+   * @param {number} n 大きさの値
+   * @returns {PVector} 更新されたPVector
+   */
+  setMag(n){
+    return this.normalize().mult(n);
+  }
+
+  /**
    * ベクトルの正規化
    */
   normalize(){
@@ -107,6 +116,7 @@ class PVector{
     if(m !== 0){
       this.div(m);
     }
+    return this;
   }
 
   limit(max){
@@ -165,6 +175,16 @@ class PVector{
     const dot = v1.dot(v2);
     const theta = Math.acos(dot / (v1.mag() * v2.mag()));
     return theta;
+  }
+
+  dist(v){
+    const v2 = v.get();
+    v2.sub(this);
+    return v2.mag();
+  }
+
+  static dist(v1, v2){
+    return v1.dist(v2);
   }
 }
 
