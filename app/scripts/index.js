@@ -18,4 +18,6 @@ import './helper';
 // import './chapter6/';
 // import './chapter6/flowField/';
 // import './chapter6/dot/';
-import './chapter6/followPath/';
+// import './chapter6/followPath/';
+import './chapter6/separationAndSeek/';
+
