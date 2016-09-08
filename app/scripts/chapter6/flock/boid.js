@@ -169,9 +169,9 @@ class Boid{
     desired.normalize();
     desired.mult(this.maxspeed);
     // 操舵力
-    const steer = PVector.sub(desired, this.velocity);
-    steer.limit(this.maxforce);
-    return steer;
+    desired.sub(this.velocity);
+    desired.limit(this.maxforce);
+    return desired;
   }
 
   // 壁を通り抜ける

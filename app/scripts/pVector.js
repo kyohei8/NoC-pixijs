@@ -96,7 +96,8 @@ class PVector{
    * ベクトルの大きさを返す
    */
   mag(){
-    return Math.sqrt(this.x * this.x + this.y * this.y);
+    const { x, y } = this;
+    return Math.sqrt(x * x + y * y);
   }
 
   /**

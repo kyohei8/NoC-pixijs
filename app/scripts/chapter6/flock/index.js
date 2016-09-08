@@ -17,19 +17,7 @@ const boids = _.range(192).map(() => {
   return boid;
 });
 
-// クリックを有効化
-renderer.stage.interactive = true;
-renderer.stage.hitArea = new PIXI.Rectangle(0, 0, width, height);
-
-let x = 0;
-let y = 0;
-renderer.stage.on('mousemove', (e) => {
-  x = e.data.global.x;
-  y = e.data.global.y;
-});
-
 renderer.draw(() => {
-  const mouse = new PVector(x, y);
-  flock.run(mouse);
+  flock.run();
 });
 
