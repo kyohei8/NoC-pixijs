@@ -13,8 +13,14 @@ class CA{
     this.rows = [];
     this.rowSize = parseInt(height / this.size);
     this.colSize = parseInt(width / this.size);
-    _.range(this.rowSize).map(() => {
-      const row = _.range(width / this.size).map(() => _.random(0, 1));
+
+    _.range(this.rowSize).map((i) => {
+      const row = _.range(this.colSize).map((j) => {
+        if(i === 0 || i === this.rowSize - 1 || j === 0 || j === this.colSize - 1){
+          return 0;
+        }
+        return _.random(0, 1)
+      });
       this.rows.push(row);
     });
     // 世代

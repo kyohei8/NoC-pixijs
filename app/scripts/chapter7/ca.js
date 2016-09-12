@@ -13,7 +13,7 @@ class CA{
     this.cells = _.range(width / this.size).map(() => 0);
     this.cells[(this.cells.length / 2)] = 1;
     // ルール
-    const ruleset = (101).toString(2).split('').map((n) => +n).reverse();
+    const ruleset = (30).toString(2).split('').map((n) => +n).reverse();
     this.ruleset = _.range(8).map((n, i) => ruleset[i] || 0);
     // 世代
     this.generation = 0;
