@@ -20,5 +20,7 @@ import './helper';
 // import './chapter6/dot/';
 // import './chapter6/followPath/';
 // import './chapter6/separationAndSeek/';
-import './chapter6/flock/';
+// import './chapter6/flock/';
+// import './chapter7/';
+import './chapter7/2Dca/';
 

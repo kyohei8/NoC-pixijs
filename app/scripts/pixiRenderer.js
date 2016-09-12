@@ -4,17 +4,17 @@ const height = window.innerHeight;
  * PixiRenderer
  */
 class PixiRenderer{
-  constructor(){
+  constructor(w = width, h = height){
     this.renderer = null;
     this.drawFunc = [];
-    this.init();
+    this.init(w, h);
     this.stage = new PIXI.Container();
     // start animating
     this.animate = this.animate.bind(this);
     this.animate();
   }
 
-  init(){
+  init(width, height){
     this.renderer = PIXI.autoDetectRenderer(width, height, {
       backgroundColor : 0xDDDDDD,
       view: document.querySelector('#app'),
