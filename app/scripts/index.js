@@ -23,5 +23,5 @@ import './helper';
 // import './chapter6/flock/';
 // import './chapter7/';
 // import './chapter7/2Dca/';
-import './chapter7/lifeGameOOP/';
-
+// import './chapter7/lifeGameOOP/';
+import './chapter7/lifeGameHex/';
