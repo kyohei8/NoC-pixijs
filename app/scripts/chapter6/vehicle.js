@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import PVector from '../pVector';
+import PVector from '../modules/pVector';
 // 壁からの距離
 const d = 25;
 

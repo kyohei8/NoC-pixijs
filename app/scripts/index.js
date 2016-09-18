@@ -1,4 +1,4 @@
-import './helper';
+import './modules/helper';
 // import './chapter0/';
 // import './chapter1/';
 // import './chapter1/example1_3/';
@@ -24,4 +24,4 @@ import './helper';
 // import './chapter7/';
 // import './chapter7/2Dca/';
 // import './chapter7/lifeGameOOP/';
-import './chapter7/lifeGameHex/';
+// import './chapter7/lifeGameHex/';

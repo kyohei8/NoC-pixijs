@@ -1,6 +1,6 @@
-import PixiRenderer from '../../pixiRenderer.js';
+import PixiRenderer from '../../modules/pixiRenderer.js';
 const renderer = new PixiRenderer();
-import PVector from '../pVector';
+import PVector from '../../modules/pVector';
 
 class VectorSubtraction{
   constructor(){

@@ -1,5 +1,5 @@
 import {Noise} from 'noisejs';
-import PVector from '../../pVector';
+import PVector from '../../modules/pVector';
 const noise = new Noise(Math.random());
 /**
  * FlowField

@@ -1,5 +1,5 @@
 // import _ from 'lodash';
-import PixiRenderer from '../pixiRenderer.js';
+import PixiRenderer from '../modules/pixiRenderer.js';
 const renderer = new PixiRenderer(640, 480);
 import CA from './ca';
 

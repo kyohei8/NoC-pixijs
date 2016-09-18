@@ -1,6 +1,6 @@
 import Particle from './particle';
 import Confetti from './confetti';
-import PVector from '../pVector';
+import PVector from '../modules/pVector';
 /**
  * ParticleSystem
  */

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { Noise } from 'noisejs';
-import PixiRenderer from '../pixiRenderer.js';
+import PixiRenderer from '../modules/pixiRenderer.js';
 const renderer = new PixiRenderer();
 import Oscillator from './oscillator';
 

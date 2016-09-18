@@ -2,7 +2,7 @@ import _ from 'lodash';
 import Mover from './mover';
 import Attractor from './attractor';
 import Liquid from './liquid';
-import PixiRenderer from '../pixiRenderer.js';
+import PixiRenderer from '../modules/pixiRenderer.js';
 const renderer = new PixiRenderer();
 
 const { width, height } = renderer.renderer;

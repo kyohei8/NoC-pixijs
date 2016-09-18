@@ -1,6 +1,6 @@
 // import Ball from './ball';
 import Mover from './mover';
-import PixiRenderer from '../pixiRenderer.js';
+import PixiRenderer from '../modules/pixiRenderer.js';
 const renderer = new PixiRenderer();
 
 // const ball = new Ball(renderer);

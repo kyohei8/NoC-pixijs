@@ -1,5 +1,5 @@
 import Pendulum from './pendulum';
-import PixiRenderer from '../pixiRenderer.js';
+import PixiRenderer from '../modules/pixiRenderer.js';
 const renderer = new PixiRenderer();
 
 const { width, height } = renderer.renderer;

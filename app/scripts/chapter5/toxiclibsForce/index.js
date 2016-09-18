@@ -2,7 +2,7 @@ import toxi from 'toxiclibsjs';
 import _ from 'lodash';
 window.toxi = toxi;
 
-import PixiRenderer from '../../pixiRenderer.js';
+import PixiRenderer from '../../modules/pixiRenderer.js';
 const renderer = new PixiRenderer();
 
 import Particle from './particle';

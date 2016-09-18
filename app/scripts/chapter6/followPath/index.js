@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import PixiRenderer from '../../pixiRenderer.js';
+import PixiRenderer from '../../modules/pixiRenderer.js';
 const renderer = new PixiRenderer();
-import PVector from '../../pVector';
+import PVector from '../../modules/pVector';
 
 import Path from './path';
 import Vehicle from './vehicle';

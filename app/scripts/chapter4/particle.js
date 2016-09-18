@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import PVector from '../pVector';
+import PVector from '../modules/pVector';
 /**
  * Particle
  */

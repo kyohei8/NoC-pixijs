@@ -19,9 +19,9 @@ config.entry = _entry;
 
 config.debug = true;
 config.devtool = '#source-map';
-config.plugins.push(new webpack.ProvidePlugin({ riot: 'riot' }));
-config.plugins.push(new WebpackNotifierPlugin());
-config.plugins.push(new webpack.optimize.OccurenceOrderPlugin());
+// config.plugins.push(new webpack.ProvidePlugin({ riot: 'riot' }));
+// config.plugins.push(new WebpackNotifierPlugin());
+// config.plugins.push(new webpack.optimize.OccurenceOrderPlugin());
 config.plugins.push(new webpack.HotModuleReplacementPlugin());
 config.plugins.push(new webpack.NoErrorsPlugin());
 config.plugins.push(new webpack.DefinePlugin({

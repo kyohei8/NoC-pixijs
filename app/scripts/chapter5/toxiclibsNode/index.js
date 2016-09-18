@@ -1,7 +1,7 @@
 import toxi from 'toxiclibsjs';
 import _ from 'lodash';
 
-import PixiRenderer from '../../pixiRenderer.js';
+import PixiRenderer from '../../modules/pixiRenderer.js';
 const renderer = new PixiRenderer();
 
 import Cluster from './cluster';

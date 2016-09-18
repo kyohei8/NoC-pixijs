@@ -1,7 +1,7 @@
 import Bob from './bob';
 import Spring from './spring';
-import PVector from '../pVector';
-import PixiRenderer from '../pixiRenderer';
+import PVector from '../modules/pVector';
+import PixiRenderer from '../modules/pixiRenderer';
 const renderer = new PixiRenderer();
 
 const { width, height } = renderer.renderer;

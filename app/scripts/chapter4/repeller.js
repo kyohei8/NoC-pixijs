@@ -1,4 +1,4 @@
-import PVector from '../pVector';
+import PVector from '../modules/pVector';
 /**
  * Repeller
  */

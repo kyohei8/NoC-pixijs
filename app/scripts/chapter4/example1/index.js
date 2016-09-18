@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import PixiRenderer from '../../pixiRenderer.js';
+import PixiRenderer from '../../modules/pixiRenderer.js';
 const renderer = new PixiRenderer();
 import ParticleSystem from '../particleSystem';
-import PVector from '../../pVector';
+import PVector from '../../modules/pVector';
 import Repeller from '../repeller';
 
 const { width, height } = renderer.renderer;

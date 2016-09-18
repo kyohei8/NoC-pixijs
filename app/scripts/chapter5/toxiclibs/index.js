@@ -1,6 +1,6 @@
 import toxi from 'toxiclibsjs';
 window.toxi = toxi;
-import PixiRenderer from '../../pixiRenderer.js';
+import PixiRenderer from '../../modules/pixiRenderer.js';
 const renderer = new PixiRenderer();
 
 import Particle from './particle';
