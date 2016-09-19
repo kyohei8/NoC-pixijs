@@ -187,6 +187,14 @@ class PVector{
   static dist(v1, v2){
     return v1.dist(v2);
   }
+
+  rotate(angle) {
+    const prev_x = this.x;
+    const c = Math.cos(angle);
+    const s = Math.sin(angle);
+    this.x = c * this.x - s * this.y;
+    this.y = s * prev_x + c * this.y;
+  }
 }
 
 export default PVector;

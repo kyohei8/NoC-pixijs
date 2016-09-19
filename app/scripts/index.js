@@ -25,3 +25,8 @@ import './modules/helper';
 // import './chapter7/2Dca/';
 // import './chapter7/lifeGameOOP/';
 // import './chapter7/lifeGameHex/';
+// import './chapter8/drawCircle';
+// import './chapter8/drawCircle2';
+// import './chapter8/cantor.js';
+// import './chapter8/kochLine/';
+import './chapter8/kochShape/';
