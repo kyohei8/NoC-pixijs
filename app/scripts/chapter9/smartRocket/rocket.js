@@ -5,7 +5,7 @@ import DNA from './dna';
  * Rocket
  */
 class Rocket{
-  constructor(renderer, x, y, dna, target){
+  constructor(renderer, x, y, dna, target, obstacles, color){
     this.renderer = renderer;
     // 位置
     this.location = new PVector(x, y);
@@ -20,14 +20,20 @@ class Rocket{
     this.target = target;
     this.hitTarget = false;
     this.geneCounter = 0;
-    this.draw();
+    this.obstacles = obstacles;
+    this.stopped = false;
+    this.color = color || `0x${Math.random().toString(16).slice(2,8)}`;
+    this.draw(color);
+    // 最短距離：初期値は適当に大きい数値
+    this.recordDist = 1000;
+    // 到達までにかかった時間
+    this.finishTime = 0;
   }
 
-  draw(){
+  draw(c){
     this.graphics = new PIXI.Graphics();
     this.graphics.lineStyle(0);
-    const color = `0x${Math.random().toString(16).slice(2,8)}`;
-    this.graphics.beginFill(color, 1)
+    this.graphics.beginFill(this.color, 1)
       .drawCircle(0, 0, 10)
       .endFill();
     this.renderer.append(this.graphics);
@@ -47,9 +53,29 @@ class Rocket{
    * 適応度を求める
    */
   fitness(){
-    const d = PVector.dist(this.location, this.target);
     // 距離の割合を適応度とする
-    this._fitness = Math.pow(1 / d, 2);
+    // const d = PVector.dist(this.location, this.target);
+    // this._fitness = Math.pow(1 / d, 2);
+
+    // 終了時間と最短距離を適応度とする
+    const fn = 1 / (this.finishTime * this.recordDist);
+    this._fitness = Math.pow(fn, 2);
+
+    if(this.stopped){
+      this._fitness *= 0.1;
+    }
+    if(this.hitTarget){
+      this._fitness *= 2;
+    }
+  }
+
+  // 障害物への当たり判定
+  checkObstacles(){
+    this.obstacles.forEach((o) => {
+      if(o.contains(this.location)){
+        this.stopped = true;
+      }
+    });
   }
 
   update(){
@@ -60,10 +86,11 @@ class Rocket{
 
   run(){
     this.checkTarget();
-    if(!this.hitTarget){
+    if(!this.hitTarget && !this.stopped){
       this.applyForce(this.dna.genes[this.geneCounter]);
       this.geneCounter = (this.geneCounter + 1) % this.dna.genes.length;
       this.update();
+      this.checkObstacles();
     }
     this.display();
   }
@@ -76,8 +103,13 @@ class Rocket{
 
   checkTarget(){
     const d = PVector.dist(this.location, this.target);
+    if(d < this.recordDist){
+      this.recordDist = d;
+    }
     if(d < 12){
       this.hitTarget = true;
+    }else{
+      this.finishTime++;
     }
   }
 

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import PVector from '../../modules/pVector';
-const MAXFORCE = 1;
+const MAXFORCE = 0.5;
 const LIFETIME = window.innerHeight;
 /**
  * DNA

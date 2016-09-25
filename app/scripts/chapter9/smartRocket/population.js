@@ -4,18 +4,19 @@ import Rocket from './rocket';
  * Population
  */
 class Population{
-  constructor(renderer, mutationRate, num, target){
+  constructor(renderer, mutationRate, num, target, obstacles){
     this.mutationRate = mutationRate;
     this.population = [];
     this.matingPool = [];
     this.generation = 0;
     this.renderer = renderer;
     this.target = target;
+    this.obstacles = obstacles;
     const { width, height } = this.renderer.renderer;
 
     // DNAの集団
     this.population = _.range(num).map(() => {
-      return new Rocket(renderer, width / 2, height - 20, new DNA(), target);
+      return new Rocket(renderer, width / 2, height - 20, new DNA(), target, this.obstacles);
     });
 
   }
@@ -52,7 +53,7 @@ class Population{
       r.graphics.clear();
       // 到着できたのもは交配しない
       if(r.hitTarget){
-        return new Rocket(this.renderer, width / 2, height - 20, r.dna, this.target);
+        return new Rocket(this.renderer, width / 2, height - 20, r.dna, this.target, this.obstacles, r.color);
       }
       const a = _.random(this.matingPool.length - 1);
       const b = _.random(this.matingPool.length - 1);
@@ -62,7 +63,7 @@ class Population{
 
       const child = rocketA.getDNA().crossOver(rocketB.getDNA());
       child.mutate(this.mutationRate);
-      return new Rocket(this.renderer, width / 2, height - 20, child, this.target);
+      return new Rocket(this.renderer, width / 2, height - 20, child, this.target, this.obstacles, r.color);
     });
     // console.log(this.population[0].dna.genes[450].x);
     this.generation++;
