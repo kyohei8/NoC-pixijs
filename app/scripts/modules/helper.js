@@ -9,3 +9,8 @@ Math.constrain = (amt, low, high) => {
 Math.getRadian = (degrees) => {
   return degrees * Math.PI / 180;
 };
+
+// ２点を補間する数値を導出
+Math.lerp = (value1, value2, amt) => {
+  return ((value2 - value1) * amt) + value1;
+};
